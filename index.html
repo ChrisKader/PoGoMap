@@ -1,0 +1,166 @@
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<style>
+    .team-1{
+        background-color: #99c9ff
+    }
+    
+    .team-2{
+        background-color: #ffad99
+    }
+    
+    .team-3{
+        background-color: #ffffcc
+    }
+    
+    .gymPokemon{
+        display:block;
+        float:left;
+        padding-right:20px;
+    }
+    
+    .gymPokemonImg{
+        margin-left: 20px;
+        margin-right: auto;
+        margin-top:auto;
+        float:right;
+        height:80px;
+        width:80px;
+    }
+    
+    .gymPokemonWeakness{
+        display: line;
+        margin-left: auto;
+        margin-right: auto;
+        height:15px;
+        width:15px;
+    }
+    
+    .gymPokemonText{
+        font-size:10pt;
+        float:left;
+        display:block;
+    }
+
+</style>
+<html>
+<body>
+<div id="target">Loading...</div>
+<script id="gymStatus" type="text/x-handlebars-template">
+<table class="table table-condensed" style="border-collapse:collapse;"><thead><tr><th>Gym Name</th><th>Points</th><th>Head Trainer</th></tr></thead>
+{{#gyms}}       
+    <tr id="gymRow" class="team-{{gym_state.fort_data.owned_by_team}} accordion-toggle" data-toggle="collapse" data-target="#collapseme{{@index}}">
+        <td>{{name}}{{#if gym_state.fort_data.is_in_battle}} [IN BATTLE]{{/if}}</td>
+        <td>{{gym_state.fort_data.gym_points.low}}</td>
+        <td>{{getHighestTrainer gym_state.memberships}}</td>
+    </tr>
+    <tr id="collapseme{{@index}}" class="collapse out">
+        <td>
+            {{#each gym_state.memberships}}
+                <div class="gymPokemon">
+                    <div class="gymPokemonText">
+                        Name: {{getPokemonInfo this.pokemon_data.pokemon_id "name"}}<br />
+                        Trainer: {{this.trainer_public_profile.name}} ({{this.trainer_public_profile.level}})<br />
+                        CP: {{this.pokemon_data.cp}}<br />
+                        HP: {{this.pokemon_data.stamina}}/{{this.pokemon_data.stamina_max}}<br />
+                        IV: {{calcIV this.pokemon_data.individual_attack this.pokemon_data.individual_defense this.pokemon_data.individual_stamina}}%<br />
+                        Weakness: 
+                        {{#each (getPokemonInfo this.pokemon_data.pokemon_id "weaknesses")}}
+                            <img class="gymPokemonWeakness" src="img/types/{{this}}.png">
+                        {{/each}}
+                    </div>
+                    <img class="gymPokemonImg" src="img/pokemon/{{getPokemonInfo this.pokemon_data.pokemon_id 'num'}}.png">
+                </div>
+            {{/each}}
+        </td>
+    </tr>
+{{/gyms}}
+</table>
+</script>
+<script id="updateStatus" type="text/x-handlebars-template">
+    <div>
+        {{#updateTime}}
+            {{.}}
+        {{/updateTime}}
+    </div>
+</script>
+</body>
+</html>
+<script type="text/javascript">
+
+    var pokemonArray
+    
+    $.ajax({
+            dataType: "json",
+            url: 'pokemon.json',
+            async: false,
+            success: function (data){
+                pokemonArray = data;
+            }
+    });
+    
+    Handlebars.registerHelper("calcIV", function(iv1, iv2, iv3) {
+        return (((iv1+iv2+iv3)/45)*100).toFixed(0)
+    });
+
+    Handlebars.registerHelper("getPokemonInfo", function(id, attr) {
+        return pokemonArray.pokemon[id - 1][attr]
+    });
+    
+    Handlebars.registerHelper("getHighestTrainer", function(array) {
+        return array[array.length-1].trainer_public_profile.name + ' (' + array[array.length-1].trainer_public_profile.level + ')'
+    });
+    
+    // A $( document ).ready() block.
+    $( document ).ready(function() {
+        var gymDataIndex
+        var gymData
+        var updateData
+        
+        $.ajax({
+            dataType: "json",
+            url: 'malvern_gym_status.json',
+            async: false,
+            success: function (data){
+                gymData = { 'gyms': data };
+            }
+        });
+        
+        $.ajax({
+            dataType: "json",
+            url: 'update.json',
+            async: false,
+            success: function (data){
+                updateData = { 'updateTime' : data };
+                console.log(updateData)
+            }
+        });
+        
+        var gymTemplateObj = $('#gymStatus').html();
+        var gymTemplate = Handlebars.compile(gymTemplateObj);
+        var gymStatusHTML = gymTemplate(gymData);
+        $('#gymStatus').html(gymStatusHTML)
+        
+        var updateTemplateObj = $('#updateStatus').html();
+        var updateTemplate = Handlebars.compile(updateTemplateObj);
+        var updateStatusHTML = updateTemplate(updateData);
+        $('#updateStatus').html(updateStatusHTML)
+        
+        
+        $("#gymRow").click(function() {
+            if($("#collapseme").hasClass("out")) {
+                $("#collapseme").addClass("in");
+                $("#collapseme").removeClass("out");
+            } else {
+                $("#collapseme").addClass("out");
+                $("#collapseme").removeClass("in");
+            }
+        });
+        
+    });
+    
+</script>

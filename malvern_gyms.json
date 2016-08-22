@@ -1,0 +1,157 @@
+[{"id":"6c32f5e8a47f4b55ae63ee4c4c2b03e7.16","name":"Church of Christ in Malvern","lat":34.353866,"lng":-92.794136,"type":"gym"},
+{"id":"7f3da6a386fe4f2c9bb2fa01abfe5dff.12","name":"Malvern Fire Department","lat":34.358586,"lng":-92.809048,"type":"gym"},
+{"id":"f4ab40634cd04545ad7fd1cfa9d3a917.16","name":"Sharon Rose Missionary Baptist Church","lat":34.360206,"lng":-92.797392,"type":"gym"},
+{"id":"c1346236781644fd8e35f2aa15829030.12","name":"Hot Spring County Museum","lat":34.364492,"lng":-92.811087,"type":"gym"},
+{"id":"bc36ff777a434730b953832106c2f1a6.16","name":"Third Baptist Church","lat":34.373036,"lng":-92.818453,"type":"gym"},
+{"id":"1b1d896128964f86881b1fe28db7e24d.12","name":"Malvern Post Office","lat":34.375097,"lng":-92.824619,"type":"gym"},
+{"id":"a7d5f95679ed493abaac04e411d63bc1.16","name":"Malvern play Park","lat":34.381997,"lng":-92.827021,"type":"gym"},
+{"id":"080f8b0161c5497da4998fce3945ead3.16","name":"Rockport Missionary Baptist Church","lat":34.384477,"lng":-92.8357,"type":"gym"},
+{"id":"08409c61d82d42dc9d47ffff23a846af.16","name":"Church of Christ","lat":34.385456,"lng":-92.829933,"type":"gym"},
+  {
+    "id": "3096c61408c947848e1df63c294a1cf9.16",
+    "name": "unknown",
+    "lat": 34.364713,
+    "lng": -92.81278,
+    "type": "pokestop"
+  },
+  {
+    "id": "b0b6639a38544ad5971219877466e06b.12",
+    "name": "unknown",
+    "lat": 34.364022,
+    "lng": -92.811878,
+    "type": "pokestop"
+  },
+  {
+    "id": "e407ae19e5ec44268e9aece340fce5ef.16",
+    "name": "unknown",
+    "lat": 34.364826,
+    "lng": -92.810603,
+    "type": "pokestop"
+  },
+  {
+    "id": "ca3db423409c4ba18405fd23b3fc4819.12",
+    "name": "unknown",
+    "lat": 34.363704,
+    "lng": -92.808502,
+    "type": "pokestop"
+  },
+  {
+    "id": "dedfc716ef68482c93d0ddeacb0b48b8.16",
+    "name": "unknown",
+    "lat": 34.362814,
+    "lng": -92.811356,
+    "type": "pokestop"
+  },
+  {
+    "id": "f4043197e9724cd3bc86a4367b7a1cc8.16",
+    "name": "unknown",
+    "lat": 34.360781,
+    "lng": -92.810825,
+    "type": "pokestop"
+  },
+  {
+    "id": "31d2b5acaf0e432f836c993cc62739cc.16",
+    "name": "unknown",
+    "lat": 34.362719,
+    "lng": -92.814356,
+    "type": "pokestop"
+  },
+  {
+    "id": "0211844a274d4f7295f44a5de1a0e347.16",
+    "name": "unknown",
+    "lat": 34.358603,
+    "lng": -92.816439,
+    "type": "pokestop"
+  },
+  {
+    "id": "2b44bab6ae70499a87199d54c7b12914.16",
+    "name": "unknown",
+    "lat": 34.354561,
+    "lng": -92.812546,
+    "type": "pokestop"
+  },
+  {
+    "id": "2b8e4c67e9834e36a59b52534335c6dd.16",
+    "name": "unknown",
+    "lat": 34.385565,
+    "lng": -92.829155,
+    "type": "pokestop"
+  },
+  {
+    "id": "495dbd7f02484c2587558c24d8bc838e.16",
+    "name": "unknown",
+    "lat": 34.387247,
+    "lng": -92.828094,
+    "type": "pokestop"
+  },
+  {
+    "id": "e90916fc479f43339335cd93d937c043.16",
+    "name": "unknown",
+    "lat": 34.386294,
+    "lng": -92.829028,
+    "type": "pokestop"
+  },
+  {
+    "id": "9f89c4727c7344cd89c8ba99aee05083.16",
+    "name": "unknown",
+    "lat": 34.385306,
+    "lng": -92.834554,
+    "type": "pokestop"
+  },
+  {
+    "id": "9f5dc264d60d4bdfb90a112701f1318d.16",
+    "name": "unknown",
+    "lat": 34.355348,
+    "lng": -92.796326,
+    "type": "pokestop"
+  },
+  {
+    "id": "a1ac1f3907b74255afcfe1ae62f73e1d.16",
+    "name": "unknown",
+    "lat": 34.346883,
+    "lng": -92.794544,
+    "type": "pokestop"
+  },
+  {
+    "id": "bfe7dee04e6845148bdc27ec1ab02da5.16",
+    "name": "unknown",
+    "lat": 34.354662,
+    "lng": -92.797337,
+    "type": "pokestop"
+  },
+  {
+    "id": "b6ba7ed2ac58467b920711c1bbcee0dc.16",
+    "name": "unknown",
+    "lat": 34.365341,
+    "lng": -92.78958,
+    "type": "pokestop"
+  },
+  {
+    "id": "4201e16980874dc08defe87c62c67276.16",
+    "name": "unknown",
+    "lat": 34.375428,
+    "lng": -92.818252,
+    "type": "pokestop"
+  },
+  {
+    "id": "083692e6cb04411ca8224b8de6575b50.16",
+    "name": "unknown",
+    "lat": 34.37668,
+    "lng": -92.822666,
+    "type": "pokestop"
+  },
+  {
+    "id": "b2f34c5b863f45a48883d51e4bec5807.16",
+    "name": "unknown",
+    "lat":34.373972,
+    "lng":-92.824379,
+    "type": "pokestop"
+  },
+  {
+    "id": "fb51ca527fe84196839811eeaaa9ae05.16",
+    "name": "unknown",
+    "lat": 34.374144,
+    "lng": -92.824735,
+    "type":"pokestop"
+  }
+]
